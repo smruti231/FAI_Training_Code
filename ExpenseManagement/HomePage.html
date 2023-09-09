@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="expenseMgr.js"></script>
+    <link rel="stylesheet" href="mainStyle.css">
+    <!-- <link rel="stylesheet" href="../css/mainStyle2.css"> -->
+    <script src = "lib/jquery.min.js"></script>
+    <script>
+        const mgrObj = new ExpenseManager();
+        //event handeler for adding record...
+        function onAddFeature(){
+            debugger;
+            const id = Number($("#txtNewId").val());
+            const detail = $("#txtDescription").val();
+            const date = new Date($("#txtNewDate").val());
+            const amount = Number($("#txtNewAmount").val());
+            const category = $("#slNewCategory").val();
+            const expense = new Expense(id, detail, date, amount, category);
+            try{
+                mgrObj.addNewExpense(expense);
+                alert("Expense added successfully");  
+                $('div').fadeOut(2000);
+            } catch(err){
+                alert(err); 
+            } 
+            //3 ways to get number from string: Number, ParseInt,parseFloat
+        }
+
+        function onUpdateFeature(){
+            const id = Number($("#txtId").val());
+            const detail = $("#txtDesc").val();
+            const date = new Date($("#txtDate").val());
+            const amount = Number($("#txtAmount").val());
+            const category = $("#slCategory").val();
+            const expense = new Expense(id, detail, date, amount, category);
+            try{
+                mgrObj.updateExpense(id, expense);
+                alert("Expense updated Successfully");
+                $('div').fadeOut(2000);
+            } catch(err){
+                alert(err);
+            }
+        }
+
+
+        function findExpenseByDate() {
+            const dateToFind = new Date($("#txtDateToFind").val());
+            const expensesOnDate = mgrObj.findExpenseByDate(dateToFind);
+            if (expensesOnDate.length > 0) {
+                let result = "Expenses on Date:\n";
+                expensesOnDate.forEach((expense) => {
+                result += `\nExpense ID: ${expense.id}\nDetail: ${expense.detail}\nDate: ${expense.date}\nAmount: ${expense.amount}\nCategory: ${expense.category}\n`;
+            });
+            alert(result);
+         } else {
+            alert("No expenses found on the selected date.");
+        }
+    }
+
+
+
+        function findExpenseByCategory() {
+            const categoryToFind = $("#slCategoryToFind").val();
+            const expensesInCategory = mgrObj.findExpenseByCategory(categoryToFind);
+            if (expensesInCategory.length > 0) {
+                let result = "Expenses in Category:\n";
+                expensesInCategory.forEach((expense) => {
+                    result += `\nExpense ID: ${expense.id}\nDetail: ${expense.detail}\nDate: ${expense.date}\nAmount: ${expense.amount}\nCategory: ${expense.category}\n`;
+                });
+                alert(result);
+            } else {
+                alert("No expenses found in the selected category");
+            }
+        }
+
+        const eventMapping = () =>{
+        // $().ready(()=>{
+            $("div").fadeOut(2000)
+            
+            $("li>a:first").click(()=>{
+                $("div").fadeOut(2000)
+                $("div:first").fadeIn(2000)
+                populate();
+            });
+
+            $("li>a:eq(1)").click(()=>{
+                $("div").fadeOut(2000)
+                $("div:eq(2)").fadeIn(2000)
+            }); 
+
+            $("li>a:eq(2)").click(()=>{
+                $("div").fadeOut(2000)
+                $("div:eq(3)").fadeIn(2000)
+            }); 
+            
+            $("li>a:last()").click(()=>{
+                $("div").fadeOut(2000)
+                $("div:last").fadeIn(2000)
+            });
+
+            $("button:eq(1)").click(onAddFeature);
+            $("button:first").click(onUpdateFeature);
+        }
+
+
+        function getRecord(id){
+            $("div:eq(0)").fadeOut(2000);
+            $("div:eq(1)").fadeIn(2000);
+            let record = mgrObj.getAllExpenses().find((e) => e.id == id);
+            if(record != null){
+                debugger;
+                $('#txtId').val(record.id);
+                $('#txtDesc').val(record.detail);
+                document.getElementById("txtDate").valueAsDate = new Date(record.date);
+                // $('#txtDate').val(record.date);
+                $('#txtAmount').val(record.amount);
+                $('#slCategory').val(record.category);
+            }
+        }
+
+        function deleteExpense(id){
+            mgrObj.deleteExpense(id);
+            populate();
+        }
+    
+        function populate(){
+            const records = mgrObj.getAllExpenses();
+            $("table").find("tr:gt(0)").remove();
+            for(const rec of records){
+                const tr = `<tr><td>${rec.id}</td><td>${rec.detail}</td><td>${rec.category}</td><td><a href = "#" selectdId = "${rec.id}" onClick = "getRecord(${rec.id})">Edit</a><a href = "#" onclick = "deleteExpense(${rec.id})">Delete</a></td></tr>`
+                $("table").append(tr);
+            }
+
+        }
+
+
+        
+        $().ready(()=>{
+            eventMapping();
+        })
+    </script>
+    <!-- <style>
+        li{
+            display:inline-block
+        }
+    </style> -->
+</head>
+<body>
+    <h1>Expense Manager</h1>
+    <hr>
+    <nav>
+        <ul class = "menu">
+            <li><a href="#" onclick="populate()">All Expense</a></li>
+            <li><a href="#">Add New Expense</a></li>
+            <li><a href="#">Find Expense</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div>
+    <!-- <div id = "mainContent"> -->
+        <h2>List of Expenses</h2>
+        <table border = "1">
+            <tr>
+                <th>Expense ID</th>
+                <th>Expense Details</th>
+                <th>Expense Category</th>
+                <th>Options</th>
+            </tr>
+        </table>
+    </div>
+    
+    <div>
+        <h2>Expense Details</h2>
+        <section>
+            <p>
+                Enter the id: <input id = "txtId" type="number"/>
+            </p>
+            <p>
+                Enter the description: <input id = "txtDesc" minlength="5" maxlength="50"/>
+            </p><p>
+                Enter the Dtae: <input  id = "txtDate" type = "date"/>
+            </p><p>
+                Enter the Amount: <input id ="txtAmount" type = "number"/>
+            </p><p>
+                Select the category :<select id = "slCategory">
+                    <option>Food</option>
+                    <option>Entertainment</option>
+                    <option>Travel</option>
+                    <option>Fixed</option>
+                </select>
+            </p>
+            <p>
+                <button>Update Expense</button>
+                <!-- <button onclick="deleteExpense()">Delete</button> -->
+            </p>
+        </section>
+    </div>
+    
+    <div>
+        <h2>Add New Expense</h2>
+        <section>
+            <p>
+                Enter the id: <input id = "txtNewId" type="number"/>
+            </p>
+            <p>
+                Enter the description: <input id = "txtDescription" minlength="5" maxlength="50"/>
+            </p><p>
+                Enter the Date: <input id = "txtNewDate" type = "date">
+            </p><p>
+                Enter the Amount: <input id ="txtNewAmount" type = "number"/>
+            </p><p>
+                Select the category :<select id = "slNewCategory">
+                    <option>Food</option>
+                    <option>Entertainment</option>
+                    <option>Travel</option>
+                    <option>Fixed</option>
+                </select>
+            </p>
+            <p>
+                <button>Add Expense</button>
+            </p>
+        </section>
+    </div>
+
+    <div>
+        <h2>Find the Expenses</h2>
+        
+        <p>
+            <h2>Find Expense by Date</h2>
+            <section>
+                <p>
+                    Enter the date: <input type="date" id="txtDateToFind">
+                </p>
+                <p>
+                    <button onclick="findExpenseByDate()">Find Expense by Date</button>
+                </p>
+            </section>
+        </p>
+    
+        <p>
+            <h2>Find Expense by Category</h2>
+            <section>
+                <p>
+                    Select the category:
+                    <select id="slCategoryToFind">
+                        <option>Food</option>
+                        <option>Entertainment</option>
+                        <option>Travel</option>
+                        <option>Fixed</option>
+                    </select>
+                </p>
+                <p>
+                    <button onclick="findExpenseByCategory()">Find Expense by Category</button>
+                </p>
+            </section>
+        </p>
+    
+    </div>
+
+    <div>
+        <h2>About US!</h2>
+    </div>
+
+    <footer>
+        &copy: Expense Manager @2023
+    </footer>
+</body>
+</html>
