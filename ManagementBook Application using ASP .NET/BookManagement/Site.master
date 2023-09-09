@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BookManagement.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Book Inventory</title>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            text-align: justify
+        }
+        .newStyle1 {
+            text-decoration: blink;
+            color: #800080;
+            font-style: inherit;
+            font-family: Consolas;
+            line-height: inherit;
+            background-color: #000000;
+            border-style: dashed;
+            width: auto;
+            height: auto;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+        }
+        .auto-style2 {
+            text-align: center;
+            color: #FF0066;
+            background-color: #FFFF99;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="auto-style2">Book Management</h1>
+    </header>
+    <nav>
+        <ul class="newStyle1">
+            <li>
+                <h4 class="auto-style1"><a href="Home.aspx">Home</a> </h4>
+            </li>
+            <li>
+                <h4 class="auto-style1"><a href="AddBook.aspx">AddBooks</a> </h4>
+            </li>
+            <li>
+                <h4 class="auto-style1"><a href="ViewBooks.aspx">ViewBooks</a> </h4>
+            </li>
+            <li>
+                <h4 class="auto-style1"><a href="AuthorDetails.aspx">AuthorDetails</a> </h4>
+            </li>
+            <li>
+                <h4 class="auto-style1"><a href="Authors.aspx">AuthorMgmt</a> </h4>
+            </li>
+        </ul>
+    </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+</body>
+</html>
