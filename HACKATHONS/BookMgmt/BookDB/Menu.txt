@@ -1,0 +1,6 @@
+﻿~~~~~~~~~~~~~~~~~~~BOOK STORE DATABASE MANAGEMENT~~~~~~~~~~~~~~~
+TO ADD NEW BOOK -------->PRESS N
+TO UPDATE A BOOK------->PRESS U
+TO DELETE A BOOK------>PRESS D
+TO FIND A BOOK -------->PRESS F
+PS: ANY OTHER KEY IMPLIES TO EXITG...........................

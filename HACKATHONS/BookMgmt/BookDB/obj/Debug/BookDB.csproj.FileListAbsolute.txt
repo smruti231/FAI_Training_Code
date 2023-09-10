@@ -1,0 +1,7 @@
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\bin\Debug\BookDB.exe.config
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\bin\Debug\BookDB.exe
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\bin\Debug\BookDB.pdb
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\obj\Debug\BookDB.csproj.AssemblyReference.cache
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\obj\Debug\BookDB.csproj.CoreCompileInputs.cache
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\obj\Debug\BookDB.exe
+C:\Users\sranjanpolai\source\repos\BookMgmt\BookDB\obj\Debug\BookDB.pdb
