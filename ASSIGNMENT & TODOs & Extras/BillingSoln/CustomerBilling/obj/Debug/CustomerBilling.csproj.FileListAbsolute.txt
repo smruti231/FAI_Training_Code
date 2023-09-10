@@ -1,0 +1,7 @@
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\bin\Debug\CustomerBilling.exe.config
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\bin\Debug\CustomerBilling.exe
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\bin\Debug\CustomerBilling.pdb
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\obj\Debug\CustomerBilling.csproj.AssemblyReference.cache
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\obj\Debug\CustomerBilling.csproj.CoreCompileInputs.cache
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\obj\Debug\CustomerBilling.exe
+C:\Users\sranjanpolai\source\repos\BillingSoln\CustomerBilling\obj\Debug\CustomerBilling.pdb
