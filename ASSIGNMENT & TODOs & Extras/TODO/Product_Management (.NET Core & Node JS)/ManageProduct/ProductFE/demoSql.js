@@ -113,16 +113,6 @@ app.get("/Products/search/:criteria/:term", (req, res) => {
 });
 
 
-app.get("/Products", (req, res) => {
-    sql.query(conString, query, (err, rows) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(rows);
-        }
-    });
-});
-
 
 app.get("/Products/sort/:criteria", (req,res)=>{
     const criteria = req.params.criteria;
@@ -152,6 +142,42 @@ app.get("/Products/sort/:criteria", (req,res)=>{
         }
     })
 })
+
+
+app.get("/Products", (req, res) => {
+    sql.query(conString, query, (err, rows) => {
+        if (err) {
+            res.send(err);
+        } else {
+            const tableRows = rows.map(row => {
+                return `<tr><td>${row.pId}</td><td>${row.pName}</td><td>${row.pPrice}</td><td>${row.pRating}</td><td>${row.pStock}</td></tr>`;
+            }).join('');
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Product List</title>
+                </head>
+                <body>
+                    <h1>Product List</h1>
+                    <table border="1">
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Product Rating</th>
+                            <th>Product Stock</th>
+                        </tr>
+                        ${tableRows}
+                    </table>
+                </body>
+                </html>
+            `;
+            res.send(html);
+        }
+    });
+});
+
 
 app.listen(1234, () => {
     console.log("Server is running on port 1234");

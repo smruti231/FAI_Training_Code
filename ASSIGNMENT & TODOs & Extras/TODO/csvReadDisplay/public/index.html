@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data Entry</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">CSV Data Entry</h1>
+        <form action="/submit" method="post" class="mt-4">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="showAlert()">Submit</button>
+            <button type="button" class="btn btn-success ml-2" onclick="showData()">Show Data</button>
+        </form>
+        <div id="dataDisplay" class="mt-4"></div>
+    </div>
+
+    <script>
+        function showAlert(){
+            alert("Data added to the CSV");
+        }
+        function showData() {
+            fetch('/data')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dataDisplay').innerHTML = data;
+                });
+        }
+    </script>
+</body>
+</html>
