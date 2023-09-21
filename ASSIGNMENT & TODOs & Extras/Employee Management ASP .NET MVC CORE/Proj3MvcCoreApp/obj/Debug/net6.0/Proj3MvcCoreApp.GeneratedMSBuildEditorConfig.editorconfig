@@ -1,0 +1,45 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Proj3MvcCoreApp
+build_property.RootNamespace = Proj3MvcCoreApp
+build_property.ProjectDir = C:\Users\sranjanpolai\source\repos\ADVANCED PROGRAMMING\DotNETCore\DotnetCoreApps\Proj3MvcCoreApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\sranjanpolai\source\repos\ADVANCED PROGRAMMING\DotNETCore\DotnetCoreApps\Proj3MvcCoreApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Employee/AddNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQWRkTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Employee/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Home/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sranjanpolai/source/repos/ADVANCED PROGRAMMING/DotNETCore/DotnetCoreApps/Proj3MvcCoreApp/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
