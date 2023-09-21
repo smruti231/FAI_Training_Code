@@ -1,0 +1,45 @@
+﻿@model Proj3MvcCoreApp.Models.Employee
+
+@{
+    List<SelectListItem> depts = ViewBag.Departments ?? new List<SelectListItem>();
+}
+
+<h1>AddNew</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm())
+            {
+            <div class="form-group">
+                EmpName : @Html.EditorFor(m=>m.Name)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(m=>m.Name)
+                </span>
+            </div>
+            <div class="form-group">
+                EmpAdress : @Html.EditorFor(m=>m.Address)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(m=>m.Address)
+                </span>
+            </div>
+            <div class="form-group">
+                EmpSalary : @Html.EditorFor(m=>m.Salary)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(m=>m.Salary)
+                </span>
+            </div>
+            <div class="form-group">
+                Dept:@Html.DropDownListFor(m=> m.DeptId, depts)
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger">Save Changes</button>
+            </div>
+            }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

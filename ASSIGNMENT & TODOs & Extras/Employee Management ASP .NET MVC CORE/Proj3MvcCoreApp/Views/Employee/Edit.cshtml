@@ -1,0 +1,54 @@
+﻿@model Proj3MvcCoreApp.Models.Employee
+
+@{
+    List<SelectListItem> depts = ViewBag.Departments ?? new List<SelectListItem>();
+}
+<script src="~/content/jquery-3.7.1.min.js"></script>
+<script src="~/content/jquery.validate.min.js"></script>
+<script src="~/content/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/content/jquery.validate.unobtrusive.min.js"></script>
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Edit Employee</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm())
+            {
+            @Html.HiddenFor(model => model.Id) 
+
+            <div class="form-group">
+                EmpName : @Html.EditorFor(model => model.Name)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Name)
+                </span>
+            </div>
+            <div class="form-group">
+                EmpAddress : @Html.EditorFor(model => model.Address)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Address)
+                </span>
+            </div>
+            <div class="form-group">
+                EmpSalary : @Html.EditorFor(model => model.Salary)
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Salary)
+                </span>
+            </div>
+            <div class="form-group">
+                Dept: @Html.DropDownListFor(model => model.DeptId, depts)
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+

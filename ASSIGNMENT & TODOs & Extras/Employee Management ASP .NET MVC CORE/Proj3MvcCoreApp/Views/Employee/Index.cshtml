@@ -1,0 +1,29 @@
+﻿@model List<Proj3MvcCoreApp.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h1 class="mt-4">List of Employees</h1>
+    <p>
+        @Html.ActionLink("Add New", "AddNew", null, new { @class = "btn btn-primary" })
+    </p>
+    <div class="row">
+        @foreach (var emp in Model)
+            {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@emp.Name</h5>
+                        <p class="card-text">Employee ID: @emp.Id</p>
+                        <p class="card-text">Address: @emp.Address</p>
+                        <a href="@Url.Action("OnShow", new { id = emp.Id })" class="btn btn-info">View</a>
+                        <a href="@Url.Action("Edit", new { id = emp.Id })" class="btn btn-info">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = emp.Id })" class="btn btn-info">Delete</a>
+                    </div>
+                </div>
+            </div>
+            }
+    </div>
+</div>
